@@ -1,14 +1,14 @@
 namespace MultiWindowForm
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private NewCustomerForm _customerForm;
         private List<Customer> _customerList;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
-            _customerForm = new NewCustomerForm();
+            _customerForm = new NewCustomerForm(this);
             _customerList = new List<Customer>();
 
             _customerList.Add(new Customer
@@ -17,6 +17,14 @@ namespace MultiWindowForm
                 Email = "jesse.harlan@centralia.edu",
                 PhoneNumber = "555-2722"
             });
+
+            ReloadDataGrid();
+        }
+
+        private void ReloadDataGrid()
+        {
+            dgvCustomers.DataSource = null;
+            dgvCustomers.DataSource = _customerList;
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -27,6 +35,7 @@ namespace MultiWindowForm
         public void AddCustomer(Customer customer)
         {
             _customerList.Add(customer);
+            ReloadDataGrid();
         }
     }
 }

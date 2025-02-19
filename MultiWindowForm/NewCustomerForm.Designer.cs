@@ -65,9 +65,11 @@
             btnSave.TabIndex = 6;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // txtPhoneNumber
             // 
+            txtPhoneNumber.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtPhoneNumber.Location = new Point(103, 82);
             txtPhoneNumber.Name = "txtPhoneNumber";
             txtPhoneNumber.Size = new Size(310, 23);
@@ -84,6 +86,7 @@
             // 
             // txtEmail
             // 
+            txtEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtEmail.Location = new Point(103, 53);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(310, 23);
@@ -100,6 +103,7 @@
             // 
             // txtName
             // 
+            txtName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtName.Location = new Point(103, 24);
             txtName.Name = "txtName";
             txtName.Size = new Size(310, 23);
