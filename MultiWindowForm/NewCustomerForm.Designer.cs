@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             gbCustomer = new GroupBox();
+            btnClear = new Button();
             btnSave = new Button();
             txtPhoneNumber = new TextBox();
             lblPhoneHeading = new Label();
@@ -43,6 +44,7 @@
             // 
             gbCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gbCustomer.AutoSize = true;
+            gbCustomer.Controls.Add(btnClear);
             gbCustomer.Controls.Add(btnSave);
             gbCustomer.Controls.Add(txtPhoneNumber);
             gbCustomer.Controls.Add(lblPhoneHeading);
@@ -56,6 +58,16 @@
             gbCustomer.TabIndex = 0;
             gbCustomer.TabStop = false;
             gbCustomer.Text = "New Customer";
+            // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(338, 116);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(75, 23);
+            btnClear.TabIndex = 7;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // btnSave
             // 
@@ -142,5 +154,6 @@
         private Button btnSave;
         private TextBox txtPhoneNumber;
         private Label lblPhoneHeading;
+        private Button btnClear;
     }
 }

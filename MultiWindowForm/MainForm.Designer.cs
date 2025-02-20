@@ -31,11 +31,8 @@
             components = new System.ComponentModel.Container();
             btnNew = new Button();
             dgvCustomers = new DataGridView();
-            customerIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             customerBindingSource = new BindingSource(components);
+            btnEditCustomer = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCustomers).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).BeginInit();
             SuspendLayout();
@@ -56,7 +53,6 @@
             dgvCustomers.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvCustomers.AutoGenerateColumns = false;
             dgvCustomers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCustomers.Columns.AddRange(new DataGridViewColumn[] { customerIdDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn });
             dgvCustomers.DataSource = customerBindingSource;
             dgvCustomers.Location = new Point(12, 48);
             dgvCustomers.MultiSelect = false;
@@ -64,42 +60,25 @@
             dgvCustomers.Size = new Size(776, 390);
             dgvCustomers.TabIndex = 1;
             // 
-            // customerIdDataGridViewTextBoxColumn
+            // btnEditCustomer
             // 
-            customerIdDataGridViewTextBoxColumn.DataPropertyName = "CustomerId";
-            customerIdDataGridViewTextBoxColumn.HeaderText = "CustomerId";
-            customerIdDataGridViewTextBoxColumn.Name = "customerIdDataGridViewTextBoxColumn";
+            btnEditCustomer.Location = new Point(570, 12);
+            btnEditCustomer.Name = "btnEditCustomer";
+            btnEditCustomer.Size = new Size(103, 23);
+            btnEditCustomer.TabIndex = 2;
+            btnEditCustomer.Text = "Edit Customer";
+            btnEditCustomer.UseVisualStyleBackColor = true;
+            btnEditCustomer.Click += btnEditCustomer_Click;
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // phoneNumberDataGridViewTextBoxColumn
-            // 
-            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
-            phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
-            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // customerBindingSource
-            // 
-            customerBindingSource.DataSource = typeof(Customer);
-            // 
-            // Form1
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnEditCustomer);
             Controls.Add(dgvCustomers);
             Controls.Add(btnNew);
-            Name = "Form1";
+            Name = "MainForm";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)dgvCustomers).EndInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).EndInit();
@@ -115,5 +94,6 @@
         private DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private BindingSource customerBindingSource;
+        private Button btnEditCustomer;
     }
 }
