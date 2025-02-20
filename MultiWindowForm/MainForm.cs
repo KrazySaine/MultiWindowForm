@@ -40,6 +40,10 @@ namespace MultiWindowForm
 
         private void btnEditCustomer_Click(object sender, EventArgs e)
         {
+            if(_customerForm == null)
+            {
+                _customerForm = new NewCustomerForm(this);
+            }
             //get the row out of the data grid view (dgv)
             Customer cust;
             //get the position of the first selected item from the data grid view
