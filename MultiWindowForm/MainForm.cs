@@ -13,9 +13,9 @@ namespace MultiWindowForm
 
             _customerList.Add(new Customer
             {
-                Name = "Jesse",
-                Email = "jesse.harlan@centralia.edu",
-                PhoneNumber = "555-2722"
+                Name = "Joey",
+                Email = "JoSchmo@gotem.com",
+                PhoneNumber = "867-5309"
             });
 
             ReloadDataGrid();
@@ -40,7 +40,7 @@ namespace MultiWindowForm
 
         private void btnEditCustomer_Click(object sender, EventArgs e)
         {
-            if(_customerForm == null)
+            if (_customerForm == null)
             {
                 _customerForm = new NewCustomerForm(this);
             }
@@ -60,6 +60,11 @@ namespace MultiWindowForm
             _customerForm.Show();
 
 
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
