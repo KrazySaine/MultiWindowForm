@@ -1,3 +1,5 @@
+using System;
+
 namespace MultiWindowForm
 {
     public partial class MainForm : Form
@@ -13,8 +15,8 @@ namespace MultiWindowForm
 
             _customerList.Add(new Customer
             {
-                Name = "Joey",
-                Email = "JoSchmo@gotem.com",
+                Name = "JO",
+                Email = "JoSchmo@ThisEmail.com",
                 PhoneNumber = "867-5309"
             });
 
@@ -38,34 +40,48 @@ namespace MultiWindowForm
             ReloadDataGrid();
         }
 
-        private void btnEditCustomer_Click(object sender, EventArgs e)
+        public void EditCustomer(int id, Customer updatedCustomer)
         {
-            if (_customerForm == null)
+            MessageBox.Show("Mainform is editing the customer now.");
+
+            // find the customer out of the list, by id
+            var cust = _customerList.Find(c => c.CustomerId == id);
+
+            // did we get a customer?
+            if (cust != null)
             {
-                _customerForm = new NewCustomerForm(this);
+                // found one, process the customer
+                cust.Name = updatedCustomer.Name;
+                cust.PhoneNumber = updatedCustomer.PhoneNumber;
+                cust.Email = updatedCustomer.Email;
+
+                ReloadDataGrid();
             }
-            //get the row out of the data grid view (dgv)
-            Customer cust;
-            //get the position of the first selected item from the data grid view
-
-
-            var index = dgvCustomers.SelectedRows[0].Index;
-            //get the customer from the list at that position
-            cust = _customerList[index];
-            //load the customer into the form
-
-            _customerForm.LoadCustomer(cust);
-
-            //show the form
-            _customerForm.Show();
-
-
-
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
+            // get the row out of the data grid view
+            Customer cust;
 
+            // get the position of the first selected item from the data grid view
+            var index = dgvCustomers.SelectedRows[0].Index;
+
+            // gets the exact customer out of the array
+            cust = _customerList[index];
+
+            // load the customer into the form
+            _customerForm.LoadCustomer(cust);
+
+            _customerForm.ToggleEdit(true);
+
+            // show the form
+            _customerForm.Show();
+        }
+
+        private void dgvCustomers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnEdit.Visible = true;
         }
     }
 }
